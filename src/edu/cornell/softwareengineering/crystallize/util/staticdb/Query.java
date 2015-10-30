@@ -8,7 +8,9 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
+import com.mongodb.QueryBuilder;
 
 public class Query {
 	public static String queryTerms(String collectionName, Map<String, String[]> queryTerms) {
@@ -26,7 +28,8 @@ public class Query {
 		DBCollection table = db.getCollection(collectionName);
 		
 		// Query
-    	BasicDBObject searchQuery = getParameterObject(queryTerms);
+    	DBObject searchQuery = getParameterObject(queryTerms).get();
+    	
     	DBCursor cursor = table.find(searchQuery);
     	String result;
     	if (cursor.hasNext()) {
@@ -49,16 +52,15 @@ public class Query {
 	}
 	
 	// Converts an HTTP parameter mapping to a DBObject
-	private static BasicDBObject getParameterObject(Map<String, String[]> parameterMap) {
-		BasicDBObject parameterObj = new BasicDBObject();
+	private static QueryBuilder getParameterObject(Map<String, String[]> parameterMap) {
+		QueryBuilder parameterObj = new QueryBuilder();
+		
 		Iterator parameterIter = parameterMap.entrySet().iterator();
 		while(parameterIter.hasNext()) {
 			Map.Entry<String, String[]> pair = (Map.Entry<String, String[]>)parameterIter.next();
 			String key = pair.getKey();
 			String[] values = pair.getValue();
-			for(String value : values) {
-				parameterObj.append(key, value);
-			}
+			parameterObj.put(key).in(values);
 		}
 		return parameterObj;
 	}

@@ -33,7 +33,8 @@ public class QueryServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		Map<String, String[]> parameters = request.getParameterMap();
-		String result = Query.queryTerms("Test", parameters);	
+		String result = Query.queryTerms("Test", parameters);
+		out.append(checkParameters(request));
 		out.append(result);
 	}
 
