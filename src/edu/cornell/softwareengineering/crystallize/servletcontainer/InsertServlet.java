@@ -1,37 +1,43 @@
 package edu.cornell.softwareengineering.crystallize.servletcontainer;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Map;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.cornell.softwareengineering.crystallize.util.staticdb.Insert;
+
 /**
  * Servlet implementation class Insert
  */
-public class Insert extends HttpServlet {
+public class InsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public Insert() {
-        // TODO Auto-generated constructor stub
+    public InsertServlet() {
+    	super();
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		PrintWriter out = response.getWriter();
+		Map<String, String[]> parameters = request.getParameterMap();
+		String result = Insert.insert("Test", parameters);	
+		out.append(result);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
