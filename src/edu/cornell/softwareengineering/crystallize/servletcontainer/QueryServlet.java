@@ -19,17 +19,10 @@ import edu.cornell.softwareengineering.crystallize.util.staticdb.*;
 public class QueryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public QueryServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		Map<String, String[]> parameters = request.getParameterMap();
@@ -38,11 +31,7 @@ public class QueryServlet extends HttpServlet {
 		out.append(result);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
@@ -54,7 +43,7 @@ public class QueryServlet extends HttpServlet {
 			Map.Entry<String, String[]> pair = (Map.Entry<String, String[]>)parameterIter.next();
 			String key = pair.getKey();
 			String[] values = pair.getValue();
-			result += key + ": " + values[0] + "\n";		
+			result += key + ": " + values.toString() + "\n";		
 		}
 		return result;
 	}

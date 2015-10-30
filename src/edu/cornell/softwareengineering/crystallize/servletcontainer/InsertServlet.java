@@ -17,16 +17,10 @@ import edu.cornell.softwareengineering.crystallize.util.staticdb.Insert;
 public class InsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * Default constructor. 
-     */
     public InsertServlet() {
     	super();
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		Map<String, String[]> parameters = request.getParameterMap();
@@ -34,9 +28,6 @@ public class InsertServlet extends HttpServlet {
 		out.append(result);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}

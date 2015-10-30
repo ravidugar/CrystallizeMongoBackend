@@ -8,11 +8,11 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Users/Peter/Downloads/mongodb-driver-core-3.0.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Peter/Downloads/mongodb-driver-core-3.0.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Peter/Downloads/bson-3.0.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Peter/Downloads/mongo-java-driver-3.0.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Peter/Downloads/mongodb-driver-3.0.4.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Apache Software Foundation/Tomcat 8.0/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="External Library/bson-3.0.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="External Library/mongo-java-driver-3.0.4.jar"/>
+	<classpathentry kind="lib" path="External Library/mongodb-driver-3.0.4.jar"/>
+	<classpathentry kind="lib" path="External Library/mongodb-driver-core-3.0.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="External Library/mongodb-driver-core-3.0.4.jar"/>
+	<classpathentry kind="lib" path="External Library/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
