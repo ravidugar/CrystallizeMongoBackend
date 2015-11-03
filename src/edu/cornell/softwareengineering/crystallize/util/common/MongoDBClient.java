@@ -1,6 +1,8 @@
 package edu.cornell.softwareengineering.crystallize.util.common;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
+import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
 
 public class MongoDBClient {
@@ -17,6 +19,28 @@ public class MongoDBClient {
 			mongoClient.close();
 			mongoClient = null;
 		}
+	}
+	
+	public static DB getDatabase() {
+		if(database == null) {
+			database = getMongoClient().getDB("Test");
+		}
+		return database;
+	}
+	
+	public static DBCollection getCollection(String collection) {
+		DB db = getDatabase();
+		// Now connect to collection
+		boolean collectionExists = db.collectionExists(collection);
+		DBCollection coll;
+		if (!collectionExists) {
+		    coll = db.createCollection(collection, new BasicDBObject());
+	    }
+		else {
+			coll = db.getCollection(collection);
+		}
+		
+		return coll;
 	}
 	
 	

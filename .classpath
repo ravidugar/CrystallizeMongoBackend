@@ -14,5 +14,6 @@
 	<classpathentry kind="lib" path="External Library/mongodb-driver-core-3.0.4-javadoc.jar"/>
 	<classpathentry kind="lib" path="External Library/mongodb-driver-core-3.0.4.jar"/>
 	<classpathentry kind="lib" path="External Library/servlet-api.jar"/>
+	<classpathentry kind="lib" path="External Library/java-json.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

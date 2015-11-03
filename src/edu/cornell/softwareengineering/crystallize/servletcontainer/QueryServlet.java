@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.*;
+
 import edu.cornell.softwareengineering.crystallize.util.staticdb.*;
 
 /**
@@ -25,8 +27,8 @@ public class QueryServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		Map<String, String[]> parameters = request.getParameterMap();
-		String result = Query.queryTerms("Test", parameters);
+		JSONObject parameters = new JSONObject(request.getParameterMap());
+		String result = Query.queryTerms(parameters);
 		out.append(checkParameters(request));
 		out.append(result);
 	}
