@@ -28,9 +28,12 @@ public class Insert {
 		for(int i = 0; i < documents.length(); i++) { 
 			documentObjs[i] = (DBObject) JSON.parse(documents.getJSONObject(i).toString()); 
 		}
-		
-    	coll.insert(documentObjs);
+		String result = "";
+		for(int i = 0; i < documentObjs.length; i++) { 
+			result += coll.save(documentObjs[i]).toString() + "\n"; 
+		}
+    	return result;
     	
-    	return "Successfully added object(s)";
+    	//return "Successfully added object(s)";
 	}
 }

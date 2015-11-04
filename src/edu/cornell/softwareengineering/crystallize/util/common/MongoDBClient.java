@@ -21,6 +21,7 @@ public class MongoDBClient {
 		}
 	}
 	
+	@SuppressWarnings("deprecation")
 	public static DB getDatabase() {
 		if(database == null) {
 			database = getMongoClient().getDB("Test");
@@ -42,9 +43,6 @@ public class MongoDBClient {
 		
 		return coll;
 	}
-	
-	
 	private static MongoClient mongoClient;
 	private static DB database;
-	
 }
